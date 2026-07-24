@@ -517,29 +517,8 @@
 
   /* ---------- RESPONSIVE MEDIA QUERIES ---------- */
  @media (max-width: 720px) {
-  html, body {
-    overflow-x: hidden !important;
-    width: 100%;
-  }
 
-  .wrap {
-    padding: 0 14px !important;
-  }
-
-  /* Header y Botón Hamburguesa */
-  .brand-name span { display: none; }
-  .header-actions { gap: 6px !important; }
-  .header-actions .btn-wsp { padding: 8px 12px !important; font-size: 12px !important; }
-  
-  .burger {
-    display: flex !important;
-    width: 38px !important;
-    height: 38px !important;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
+  /* --- MENU HAMBURGUESA DESPLEGABLE --- */
   nav.main-nav {
     display: none;
     position: absolute;
@@ -548,15 +527,41 @@
     width: 100%;
     background: var(--navy-900);
     flex-direction: column;
-    padding: 18px;
-    gap: 14px;
+    padding: 20px;
+    gap: 16px;
     border-bottom: 2px solid var(--gold);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    z-index: 999;
   }
 
+  /* Clase que activa el menú con JavaScript */
   nav.main-nav.open {
     display: flex !important;
   }
+
+  /* --- CATÁLOGO Y FILTROS EN VERTICAL --- */
+  .catalog-body {
+    grid-template-columns: 1fr !important; /* Pasa de 2 columnas a 1 sola */
+    gap: 20px !important;
+    padding: 20px 12px !important;
+  }
+
+  .filters {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  /* Barra de búsqueda y selector de orden en vertical */
+  .search-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sort-select {
+    width: 100%;
+    padding: 12px;
+  }
+}
 
   /* Tabla de Medidas Optimizada */
   .split {
@@ -587,7 +592,7 @@
   .card-actions {
     flex-direction: column !important;
   }
-}
+
   /* Asegura que las 3 barritas siempre sean visibles */
 .burger {
   display: flex !important;
@@ -1392,6 +1397,34 @@ function switchSizeTab(type) {
 
 // Carga inicial
 renderCatalog();
+
+// Activar evento para el botón hamburguesa en celular
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerBtn = document.querySelector('.burger');
+  const mainNav = document.querySelector('nav.main-nav');
+
+  if (burgerBtn && mainNav) {
+    burgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mainNav.classList.toggle('open');
+    });
+
+    // Cerrar el menú al hacer clic en cualquier opción
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+      });
+    });
+
+    // Cerrar el menú si se toca fuera de él
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !burgerBtn.contains(e.target)) {
+        mainNav.classList.remove('open');
+      }
+    });
+  }
+});
+
 </script>
 </body>
 </html>
