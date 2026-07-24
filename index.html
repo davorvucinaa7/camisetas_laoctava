@@ -613,15 +613,15 @@
     </div>
     <div class="price-panel">
       <ul class="price-list">
-        <li><span class="label">Camiseta versión fan / sin mangas</span><span class="amount">$13.000</span></li>
+        <li><span class="label">Camiseta versión fan / Camiseta sin mangas</span><span class="amount">$13.000</span></li>
         <li><span class="label">Sin mangas + short (misma talla)</span><span class="amount">$23.000</span></li>
         <li><span class="label">Short</span><span class="amount">$12.000</span></li>
         <li><span class="label">Manga larga versión fan</span><span class="amount">$20.000</span></li>
         <li><span class="label">Retro o versión jugador</span><span class="amount">$18.000</span></li>
-        <li><span class="label">Manga larga retro / jugador</span><span class="amount">$24.000</span></li>
+        <li><span class="label">Manga larga retro / Manga larga versión jugador</span><span class="amount">$24.000</span></li>
         <li><span class="label">Tallas desde 2XL</span><span class="amount">+$1.000</span></li>
-        <li><span class="label">Nombre + número</span><span class="amount">$3.500</span></li>
-        <li><span class="label">Parche (c/u)</span><span class="amount">$1.200</span></li>
+        <li><span class="label">Nombre + número</span><span class="amount">+$3.500</span></li>
+        <li><span class="label">Parche (c/u)</span><span class="amount">+$1.200</span></li>
       </ul>
       <div class="price-note">
         <b>Personaliza tu camiseta.</b><br><br>
@@ -634,24 +634,143 @@
   <section class="wrap" id="medidas">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Antes de pedir</span>
+        <span class="eyebrow">Guía de tallas</span>
         <h2>Tabla de medidas</h2>
       </div>
     </div>
+
+    <!-- Pestañas para alternar entre versiones -->
+    <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+      <button class="thumb-btn active" id="tab-fan" onclick="switchSizeTab('fan')">Versión Fan / Retro (Comfort Fit)</button>
+      <button class="thumb-btn" id="tab-jugador" onclick="switchSizeTab('jugador')">Versión Jugador (Slim Fit)</button>
+    </div>
+
     <div class="split">
-      <div class="measure-card">
-        <div class="measure-row"><b>Talla S</b><span>Ancho 47cm · Largo 68cm</span></div>
-        <div class="measure-row"><b>Talla M</b><span>Ancho 50cm · Largo 70cm</span></div>
-        <div class="measure-row"><b>Talla L</b><span>Ancho 53cm · Largo 72cm</span></div>
-        <div class="measure-row"><b>Talla XL</b><span>Ancho 56cm · Largo 74cm</span></div>
-        <div class="measure-row"><b>Talla 2XL</b><span>Ancho 59cm · Largo 76cm</span></div>
+      <!-- TABLA 1: VERSIÓN FAN / RETRO -->
+      <div class="measure-card" id="size-table-fan" style="overflow-x:auto;">
+        <div style="font-family:'Roboto Mono',monospace; font-size:11px; color:var(--red); text-transform:uppercase; margin-bottom:14px; font-weight:700;">★ VERSIÓN FAN / SIN MANGAS / RETRO ★</div>
+        
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+          <thead>
+            <tr style="border-bottom:1.5px solid var(--navy-line); font-family:'Roboto Mono',monospace; font-size:11px; color:var(--ink-soft); text-transform:uppercase;">
+              <th style="padding:8px 4px;">Talla</th>
+              <th style="padding:8px 4px;">Largo</th>
+              <th style="padding:8px 4px;">Ancho</th>
+              <th style="padding:8px 4px;">Estatura</th>
+              <th style="padding:8px 4px;">Peso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">S</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">68-70 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">49-51 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">160-165 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">50-62 kg</td>
+            </tr>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">M</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">70-72 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">51-53 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">165-170 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">62-70 kg</td>
+            </tr>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">L</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">72-74 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">53-55 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">170-175 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">71-75 kg</td>
+            </tr>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">XL</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">74-77 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">55-57 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">175-180 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">76-80 kg</td>
+            </tr>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">2XL</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">77-79 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">57-59 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">180-185 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">81-89 kg</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">3XL</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">79-82 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">59-61 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">185-190 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">90-96 kg</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+      <!-- TABLA 2: VERSIÓN JUGADOR -->
+      <div class="measure-card" id="size-table-jugador" style="display:none; overflow-x:auto;">
+        <div style="font-family:'Roboto Mono',monospace; font-size:11px; color:var(--gold); text-transform:uppercase; margin-bottom:14px; font-weight:700;">⚡ VERSIÓN JUGADOR (AJUSTADO - SLIM FIT) ⚡</div>
+        
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+          <thead>
+            <tr style="border-bottom:1.5px solid var(--navy-line); font-family:'Roboto Mono',monospace; font-size:11px; color:var(--ink-soft); text-transform:uppercase;">
+              <th style="padding:8px 4px;">Talla</th>
+              <th style="padding:8px 4px;">Largo</th>
+              <th style="padding:8px 4px;">Ancho</th>
+              <th style="padding:8px 4px;">Estatura</th>
+              <th style="padding:8px 4px;">Peso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">S</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">69-71 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">45-47 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">160-165 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">48-62 kg</td>
+            </tr>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">M</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">72-74 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">47-49 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">165-170 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">62-70 kg</td>
+            </tr>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">L</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">74-75 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">49-51 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">170-175 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">68-75 kg</td>
+            </tr>
+            <tr style="border-bottom:1px dashed rgba(10,21,38,0.1);">
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">XL</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">76-78 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">51-53 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">175-180 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">72-80 kg</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 4px; font-weight:800; color:var(--navy-950);">2XL</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">78-80 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">53-55 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">180-185 cm</td>
+              <td style="padding:10px 4px; font-family:'Roboto Mono';">78-90 kg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RECOMENDACIONES -->
       <div>
-        <h3 style="font-family:'Work Sans'; text-transform:none; font-weight:800; font-size:20px; color:var(--navy-950); margin-bottom:12px;">¿No sabes qué talla elegir?</h3>
-        <p style="color:var(--ink-soft); font-size:14.5px; line-height:1.7; margin-bottom:18px;">
-          Te recomendamos medir una camiseta que ya tengas y te quede bien: pon la prenda estirada sobre una superficie plana y compara el ancho (de axila a axila) y el largo (desde el hombro hasta el borde inferior) con la tabla. Tenemos guías específicas para versión fan, versión jugador, sin mangas, shorts y camisetas de niños.
+        <h3 style="font-family:'Work Sans'; text-transform:none; font-weight:800; font-size:20px; color:var(--navy-950); margin-bottom:12px;">¿Cómo elegir tu talla ideal?</h3>
+        <p style="color:var(--ink-soft); font-size:14px; line-height:1.6; margin-bottom:12px;">
+          • <b>Versión Fan / Retro:</b> Tiene un calce regular tradicional. Si prefieres un ajuste normal, elige tu talla habitual[cite: 5].<br>
+          • <b>Versión Jugador:</b> Tiene un calce entallado/ajustado (Slim Fit). Te recomendamos pedir <b>una talla más</b> de la habitual para uso normal, o <b>dos tallas más</b> si te gusta holgada.
         </p>
-        <a class="btn btn-outline" style="border-color:var(--navy-700); color:var(--navy-950);" href="#faq">Ver tabla completa por tipo →</a>
+        <p style="font-size:12px; color:var(--ink-soft); opacity:0.8;">
+          * Puede existir una variación de 1 a 3 cm debido a la medición manual.
+        </p>
       </div>
     </div>
   </section>
@@ -843,7 +962,7 @@
 <script>
 /* ============ DATA ============ */
 const LIGAS = ["Premier League","La Liga","Serie A","Bundesliga","Ligue 1","Liga chilena","Liga argentina","Liga brasileña","Otras ligas"];
-const TIPOS = ["Versión Fan","Versión jugador","Retro","Manga larga",, "Manga Corta","Sin mangas","Selección","Niños","Shorts","Conjunto","Entrenamiento"];
+const TIPOS = ["Versión fan","Versión jugador","Retro","Manga corta","Manga larga","Sin mangas","Selección","Niños","Shorts","Conjunto","Entrenamiento"];
 const MODELOS = ["Local","Visita","Tercera","Arquero","Edición especial"];
 const TALLAS = ["S","M","L","XL","2XL"];
 
@@ -859,8 +978,7 @@ function cardHTML(p){
   <div class="card">
     <div class="card-hole"></div>
     <div class="card-media" style="cursor: pointer;" onclick="openModal('${p.id}')">
-      <span class="badge ${p.disponible ? 'ok' : 'encargo'}">${p.disponible ? 'Disponible' : 'Por encargo'}</span>
-      ${p.nuevo ? '<span class="badge new">Nuevo</span>' : ''}
+      <span class="badge ok">Disponible para encargo</span>
       
       <div class="img-wrapper">
         <img src="${p.imagen}" alt="${p.equipo} ${p.temporada}" class="jersey-img img-front" loading="lazy">
@@ -874,7 +992,6 @@ function cardHTML(p){
       <div class="card-type">${p.tipo} · ${p.modelo}</div>
       <div class="card-foot">
         <span class="price mono">${money(p.price)}</span>
-        <span class="mono" style="font-size:10.5px; color:var(--ink-soft);">${p.id}</span>
       </div>
       <div class="card-actions">
         <a class="btn-sm details" href="#" onclick="event.preventDefault(); openModal('${p.id}')">Ver detalles</a>
@@ -884,6 +1001,7 @@ function cardHTML(p){
   </div>`;
 }
 
+// Cargar listas de Inicio
 document.getElementById('grid-nuevos').innerHTML = PRODUCTS.filter(p=>p.nuevo).slice(0,4).map(cardHTML).join('');
 document.getElementById('grid-populares').innerHTML = PRODUCTS.filter(p=>p.popular).slice(0,4).map(cardHTML).join('');
 
@@ -961,10 +1079,10 @@ function renderCatalog(){
     const pEquipo = (p.equipo || "").toLowerCase();
     const pLiga = (p.liga || "").toLowerCase();
     const pTipo = (p.tipo || "").toLowerCase();
+    const pManga = (p.manga || "").toLowerCase();
     const pModelo = (p.modelo || "").toLowerCase();
     const pVersion = (p.version || "").toLowerCase();
     const pTemporada = (p.temporada || "").toLowerCase();
-    const pImagen = (p.imagen || "").toLowerCase();
 
     // Búsqueda por texto (buscador superior)
     if(q && !(pEquipo.includes(q) || pLiga.includes(q) || pTemporada.includes(q))) return false;
@@ -972,24 +1090,24 @@ function renderCatalog(){
     // Filtro por Liga
     if(ligas.length && !ligas.includes(pLiga)) return false;
 
-    // Filtro inteligente por Tipo y Mangas (Fan, Jugador, Retro, Manga Corta, Manga Larga)
+    // Filtro inteligente por Tipo y Mangas
     if(tipos.length){
       const cumpleTipo = tipos.some(t => {
-        if(t.includes("manga corta")) return pImagen.includes("manga corta") || pTipo.includes("manga corta");
-        if(t.includes("manga larga")) return pImagen.includes("manga larga") || pTipo.includes("manga larga");
-        if(t.includes("retro")) return pTipo.includes("retro") || pTemporada.includes("retro") || pImagen.includes("retro");
-        return pTipo.includes(t);
+        if(t === "manga corta") return pManga === "manga corta";
+        if(t === "manga larga") return pManga === "manga larga";
+        if(t === "retro") return pTipo === "retro" || pTemporada.includes("retro");
+        return pTipo === t;
       });
       if(!cumpleTipo) return false;
     }
 
-    // Filtro por Modelo (Local, Visita, etc.)
+    // Filtro por Modelo
     if(modelos.length && !modelos.includes(pModelo)) return false;
 
     // Filtro por Talla
     if(tallas.length && !tallas.some(t => p.tallas.map(x=>x.toLowerCase()).includes(t))) return false;
 
-    // Filtro por Versión (Checkboxes Fan / Jugador)
+    // Filtro por Versión
     if(versiones.length && !versiones.includes(pVersion)) return false;
 
     // Filtro por Disponibilidad
@@ -1012,11 +1130,19 @@ function renderCatalog(){
   document.getElementById('result-count').textContent = list.length;
 }
 
+// Event Listeners para búsqueda e interactividad
+document.getElementById('search-input').addEventListener('input', renderCatalog);
+document.getElementById('sort-select').addEventListener('change', renderCatalog);
+document.querySelectorAll('.f-version, .f-estado').forEach(el=>el.addEventListener('change', renderCatalog));
+
 /* ============ PAGE SWITCH ============ */
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   window.scrollTo({top:0, behavior:'instant'});
+  if(name === 'catalogo') {
+    renderCatalog(); // Asegura cargar los productos inmediatamente al entrar al catálogo
+  }
 }
 
 /* ============ MODAL FUNCTIONS ============ */
@@ -1063,7 +1189,29 @@ function closeModal(event) {
     document.getElementById('image-modal').classList.remove('active');
   }
 }
-</script>
 
+/* ============ CAMBIO DE TABLA DE MEDIDAS ============ */
+function switchSizeTab(type) {
+  const tableFan = document.getElementById('size-table-fan');
+  const tableJugador = document.getElementById('size-table-jugador');
+  const tabFan = document.getElementById('tab-fan');
+  const tabJugador = document.getElementById('tab-jugador');
+
+  if (type === 'fan') {
+    tableFan.style.display = 'block';
+    tableJugador.style.display = 'none';
+    tabFan.classList.add('active');
+    tabJugador.classList.remove('active');
+  } else {
+    tableFan.style.display = 'none';
+    tableJugador.style.display = 'block';
+    tabJugador.classList.add('active');
+    tabFan.classList.remove('active');
+  }
+}
+
+// Carga inicial del catálogo al abrir la página
+renderCatalog();
+</script>
 </body>
 </html>
