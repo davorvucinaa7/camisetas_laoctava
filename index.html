@@ -24,15 +24,29 @@
     --radius:14px;
     --shadow: 0 18px 40px -20px rgba(10,21,38,0.55);
   }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    -webkit-font-smoothing:antialiased;
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
+  
+  html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
   h1,h2,h3,.display{
     font-family:'Anton', sans-serif;
     font-weight:400;
@@ -42,8 +56,8 @@
   }
   .mono{font-family:'Roboto Mono', monospace;}
   a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:1240px; margin:0 auto; padding:0 24px;}
+  img{max-width:100%; height:auto; display:block;}
+  .wrap{max-width:1240px; margin:0 auto; padding:0 24px; width:100%;}
   button{font-family:inherit; cursor:pointer; border:none;}
 
   /* ---------- SCROLLBAR ACCENT ---------- */
@@ -60,11 +74,13 @@
     text-align:center;
     padding:7px 12px;
     border-bottom:1px solid var(--navy-line);
+    word-break: break-word;
   }
   header.site{
     position:sticky; top:0; z-index:100;
     background:var(--navy-900);
     border-bottom:2px solid var(--gold);
+    width: 100%;
   }
   .header-inner{
     display:flex; align-items:center; justify-content:space-between;
@@ -77,6 +93,7 @@
     display:flex; align-items:center; justify-content:center;
     font-family:'Anton',sans-serif; color:var(--navy-950); font-size:20px;
     box-shadow: inset 0 0 0 2px rgba(10,21,38,0.25);
+    flex-shrink: 0;
   }
   .brand-name{color:var(--white); font-size:20px; line-height:1.05;}
   .brand-name span{display:block; color:var(--gold); font-size:12px; letter-spacing:2px; font-family:'Roboto Mono',monospace; text-transform:uppercase; margin-top:3px;}
@@ -89,7 +106,7 @@
   nav.main-nav a:hover{opacity:1; color:var(--gold-soft);}
   .header-actions{display:flex; align-items:center; gap:10px;}
   .btn{
-    display:inline-flex; align-items:center; gap:8px;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
     padding:11px 20px; border-radius:999px; font-weight:700; font-size:13.5px;
     letter-spacing:0.3px; transition:transform .15s ease, box-shadow .15s ease;
   }
@@ -104,6 +121,7 @@
     width:38px;height:38px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     border:1.5px solid rgba(246,243,234,0.35); color:var(--paper);
+    flex-shrink: 0;
   }
   .icon-link:hover{border-color:var(--gold); color:var(--gold-soft);}
   .burger{display:none; width:42px;height:42px;border-radius:10px;background:transparent;border:1.5px solid rgba(246,243,234,0.35); color:var(--paper); align-items:center; justify-content:center; font-size:18px;}
@@ -118,6 +136,7 @@
     padding:76px 24px 90px;
     text-align:center;
     border-bottom: 1px solid var(--navy-line);
+    width: 100%;
   }
   .hero::before{
     content:"";
@@ -133,10 +152,10 @@
     color:var(--gold); margin-bottom:18px; display:flex; align-items:center; justify-content:center; gap:10px;
   }
   .hero-eyebrow::before,.hero-eyebrow::after{content:""; width:28px; height:1px; background:var(--gold); opacity:0.6;}
-  .hero h1{font-size:clamp(40px,7vw,78px); line-height:0.98; color:var(--white);}
+  .hero h1{font-size:clamp(36px,7vw,78px); line-height:0.98; color:var(--white);}
   .hero h1 .accent{color:var(--gold);}
   .hero p.tag{
-    font-size:clamp(16px,2.4vw,20px); color:var(--paper); opacity:0.85; margin-top:18px;
+    font-size:clamp(15px,2.4vw,20px); color:var(--paper); opacity:0.85; margin-top:18px;
     font-weight:500;
   }
   .hero-ctas{display:flex; gap:14px; justify-content:center; margin-top:36px; flex-wrap:wrap;}
@@ -144,41 +163,54 @@
     display:flex; justify-content:center; gap:0; margin-top:56px; flex-wrap:wrap;
     border-top:1px solid var(--navy-line); padding-top:26px;
   }
-  .hero-stats div{padding:0 28px; text-align:center; border-right:1px solid var(--navy-line);}
+  .hero-stats div{padding:10px 28px; text-align:center; border-right:1px solid var(--navy-line);}
   .hero-stats div:last-child{border-right:none;}
   .hero-stats b{display:block; font-family:'Anton'; font-size:28px; color:var(--gold-soft);}
   .hero-stats span{font-size:12px; color:var(--paper); opacity:0.7; letter-spacing:0.5px;}
 
   /* ---------- SECTION SHELL ---------- */
-  section{padding:64px 0;}
+  section{padding:64px 0; width:100%;}
   .section-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:30px; flex-wrap:wrap; gap:14px;}
   .section-head .eyebrow{
     font-family:'Roboto Mono',monospace; font-size:11.5px; letter-spacing:2.5px; color:var(--red);
     text-transform:uppercase; margin-bottom:8px; display:block;
   }
-  .section-head h2{font-size:clamp(26px,4vw,38px); color:var(--navy-950);}
+  .section-head h2{font-size:clamp(24px,4vw,38px); color:var(--navy-950);}
   .see-all{font-weight:700; font-size:13.5px; color:var(--navy-900); border-bottom:2px solid var(--gold); padding-bottom:2px;}
 
-  /* ---------- HANG-TAG PRODUCT CARD ---------- */
-  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
-  .grid.cols-6{grid-template-columns:repeat(6,1fr);}
+  /* ---------- HANG-TAG PRODUCT CARD & GRID CORREGIDA ---------- */
+  .grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 20px;
+    width: 100%;
+  }
+  .grid.cols-6 {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
   .card{
     background:var(--white);
     border-radius:var(--radius);
     box-shadow:var(--shadow);
     position:relative;
-    overflow:visible;
+    overflow:hidden;
     transition:transform .18s ease, box-shadow .18s ease;
     border:1px solid rgba(10,21,38,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
   }
   .card:hover{transform:translateY(-5px); box-shadow:0 24px 46px -18px rgba(10,21,38,0.4);}
   .card-hole{
     position:absolute; top:-9px; left:22px; width:18px; height:18px; border-radius:50%;
     background:var(--paper); border:1px solid rgba(10,21,38,0.1);
     box-shadow: inset 0 2px 4px rgba(10,21,38,0.12);
+    z-index: 3;
   }
   .card-media{
-    position:relative; padding:26px 20px 10px;
+    position:relative; padding:26px 15px 10px;
     border-bottom:1.5px dashed rgba(10,21,38,0.14);
     background:linear-gradient(180deg, #fdfcf9, #f2efe6);
     border-radius:var(--radius) var(--radius) 0 0;
@@ -186,8 +218,8 @@
   }
   .badge{
     position:absolute; top:12px; left:12px;
-    font-family:'Roboto Mono',monospace; font-size:10.5px; font-weight:700;
-    letter-spacing:0.5px; padding:4px 9px; border-radius:6px; text-transform:uppercase;
+    font-family:'Roboto Mono',monospace; font-size:9.5px; font-weight:700;
+    letter-spacing:0.5px; padding:4px 8px; border-radius:6px; text-transform:uppercase;
     z-index: 2;
   }
   .badge.ok{background:#e5f3ea; color:#1c7a41;}
@@ -195,18 +227,24 @@
   .badge.new{
     position:absolute; top:12px; right:12px; background:var(--gold); color:var(--navy-950);
   }
-  .card-body{padding:16px 18px 18px;}
+  .card-body{
+    padding:16px 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
   .card-meta{
     font-family:'Roboto Mono',monospace; font-size:10.5px; color:var(--ink-soft);
-    letter-spacing:0.5px; text-transform:uppercase; margin-bottom:6px; display:flex; gap:8px;
+    letter-spacing:0.5px; text-transform:uppercase; margin-bottom:6px; display:flex; gap:6px; flex-wrap: wrap;
   }
-  .card-body h3{font-size:16px; text-transform:none; letter-spacing:0; font-family:'Work Sans'; font-weight:800; color:var(--navy-950); line-height:1.2;}
-  .card-type{font-size:12.5px; color:var(--ink-soft); margin-top:3px;}
+  .card-body h3{font-size:15px; text-transform:none; letter-spacing:0; font-family:'Work Sans'; font-weight:800; color:var(--navy-950); line-height:1.2;}
+  .card-type{font-size:12px; color:var(--ink-soft); margin-top:3px;}
   .card-foot{display:flex; align-items:center; justify-content:space-between; margin-top:14px;}
-  .price{font-family:'Roboto Mono',monospace; font-weight:700; font-size:17px; color:var(--navy-950);}
+  .price{font-family:'Roboto Mono',monospace; font-weight:700; font-size:16px; color:var(--navy-950);}
   .price::before{content:"$ "; color:var(--red);}
   .card-actions{display:flex; gap:8px; margin-top:14px;}
-  .btn-sm{flex:1; text-align:center; padding:9px 8px; border-radius:99px; font-size:12.5px; font-weight:700;}
+  .btn-sm{flex:1; text-align:center; padding:9px 6px; border-radius:99px; font-size:12px; font-weight:700; display: inline-block;}
   .btn-sm.details{background:var(--paper-dim); color:var(--navy-950);}
   .btn-sm.details:hover{background:#e2ddc9;}
   .btn-sm.wsp{background:#25D366; color:#06280f;}
@@ -216,12 +254,12 @@
   .img-wrapper {
     position: relative;
     width: 100%;
-    height: 180px;
+    height: 190px;
   }
 
   .jersey-img {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: contain;
     display: block;
     margin: 0 auto;
@@ -287,7 +325,7 @@
 
   .modal-img-container {
     width: 100%;
-    height: 380px;
+    height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -326,7 +364,7 @@
   }
 
   /* ---------- CATEGORY TILES ---------- */
-  .cat-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:16px;}
+  .cat-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:16px; width:100%;}
   .cat-tile{
     background:var(--navy-900); color:var(--white); border-radius:12px; padding:20px 14px;
     text-align:center; position:relative; overflow:hidden; border:1px solid var(--navy-line);
@@ -338,7 +376,7 @@
   .cat-tile small{display:block; font-family:'Roboto Mono'; font-size:10px; color:rgba(246,243,234,0.5); margin-top:4px;}
 
   /* ---------- HOW TO BUY ---------- */
-  .steps{display:grid; grid-template-columns:repeat(5,1fr); gap:18px;}
+  .steps{display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:18px; width:100%;}
   .step{
     background:var(--white); border-radius:12px; padding:22px 18px; border:1px solid rgba(10,21,38,0.08);
     position:relative;
@@ -352,18 +390,18 @@
 
   /* ---------- PRICING ---------- */
   .price-panel{
-    background:var(--navy-900); border-radius:18px; padding:40px; color:var(--white);
-    display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center;
-    border:1px solid var(--navy-line);
+    background:var(--navy-900); border-radius:18px; padding:30px; color:var(--white);
+    display:grid; grid-template-columns:1.1fr 1fr; gap:30px; align-items:center;
+    border:1px solid var(--navy-line); width:100%;
   }
   .price-list{list-style:none; margin:0; padding:0;}
   .price-list li{
     display:flex; justify-content:space-between; align-items:baseline;
-    padding:13px 0; border-bottom:1px dashed rgba(246,243,234,0.18); gap:20px;
+    padding:13px 0; border-bottom:1px dashed rgba(246,243,234,0.18); gap:15px;
   }
   .price-list li:last-child{border-bottom:none;}
-  .price-list .label{font-size:14px; font-weight:500; color:var(--paper);}
-  .price-list .amount{font-family:'Roboto Mono'; font-weight:700; color:var(--gold-soft); font-size:15px; white-space:nowrap;}
+  .price-list .label{font-size:13.5px; font-weight:500; color:var(--paper);}
+  .price-list .amount{font-family:'Roboto Mono'; font-weight:700; color:var(--gold-soft); font-size:14.5px; white-space:nowrap;}
   .price-note{
     background:rgba(212,175,55,0.09); border:1px solid var(--navy-line); border-radius:12px;
     padding:22px; font-size:13.5px; line-height:1.7; color:var(--paper);
@@ -374,36 +412,37 @@
   .faq-item{border-bottom:1px solid rgba(10,21,38,0.1);}
   .faq-q{
     width:100%; background:none; text-align:left; padding:20px 4px; display:flex; align-items:center;
-    justify-content:space-between; font-weight:700; font-size:15.5px; color:var(--navy-950);
+    justify-content:space-between; font-weight:700; font-size:15px; color:var(--navy-950);
   }
-  .faq-q .plus{font-family:'Anton'; font-size:20px; color:var(--gold); transition:transform .2s ease;}
+  .faq-q .plus{font-family:'Anton'; font-size:20px; color:var(--gold); transition:transform .2s ease; margin-left: 10px;}
   .faq-item.open .plus{transform:rotate(45deg); color:var(--red);}
   .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
-  .faq-item.open .faq-a{max-height:200px;}
+  .faq-item.open .faq-a{max-height:250px;}
   .faq-a p{padding:0 4px 20px; margin:0; color:var(--ink-soft); font-size:14px; line-height:1.6; max-width:640px;}
 
   /* ---------- CATALOG PAGE ---------- */
-  .catalog-shell{background:var(--paper); padding-top:36px;}
+  .catalog-shell{background:var(--paper); padding-top:36px; width:100%; overflow-x:hidden;}
   .catalog-top{
     background:var(--navy-950); color:var(--white); padding:34px 0 26px; border-bottom:1px solid var(--navy-line);
+    width:100%;
   }
-  .search-row{display:flex; gap:12px; margin-top:18px;}
+  .search-row{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;}
   .search-box{
-    flex:1; display:flex; align-items:center; gap:10px; background:var(--navy-800);
-    border:1.5px solid var(--navy-line); border-radius:12px; padding:13px 18px;
+    flex:1; min-width: 240px; display:flex; align-items:center; gap:10px; background:var(--navy-800);
+    border:1.5px solid var(--navy-line); border-radius:12px; padding:11px 16px;
   }
   .search-box input{
-    background:none; border:none; outline:none; color:var(--white); font-size:14.5px; width:100%; font-family:'Work Sans';
+    background:none; border:none; outline:none; color:var(--white); font-size:14px; width:100%; font-family:'Work Sans';
   }
   .search-box input::placeholder{color:rgba(246,243,234,0.45);}
   .sort-select{
     background:var(--navy-800); border:1.5px solid var(--navy-line); color:var(--paper);
-    border-radius:12px; padding:0 16px; font-size:13.5px; font-weight:600; font-family:'Work Sans';
+    border-radius:12px; padding:11px 16px; font-size:13.5px; font-weight:600; font-family:'Work Sans';
   }
-  .catalog-body{display:grid; grid-template-columns:250px 1fr; gap:32px; padding:36px 0 70px; align-items:start;}
+  .catalog-body{display:grid; grid-template-columns:250px 1fr; gap:28px; padding:36px 24px 70px; align-items:start;}
   .filters{
     background:var(--white); border-radius:14px; padding:22px; border:1px solid rgba(10,21,38,0.08);
-    position:sticky; top:96px;
+    position:sticky; top:96px; width: 100%;
   }
   .filters h4{
     font-family:'Roboto Mono'; font-size:11px; letter-spacing:2px; color:var(--red); text-transform:uppercase;
@@ -431,18 +470,18 @@
 
   /* ---------- MEASURE / HOW-TO STRIP ---------- */
   .split{
-    display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center;
+    display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:start; width:100%;
   }
   .measure-card{
-    background:var(--white); border-radius:16px; padding:30px; border:1px solid rgba(10,21,38,0.08);
+    background:var(--white); border-radius:16px; padding:24px; border:1px solid rgba(10,21,38,0.08); width:100%;
   }
   .measure-row{display:flex; justify-content:space-between; padding:11px 0; border-bottom:1px dashed rgba(10,21,38,0.1); font-size:13.5px;}
   .measure-row b{color:var(--navy-950);}
   .measure-row span{color:var(--ink-soft); font-family:'Roboto Mono'; font-size:12.5px;}
 
   /* ---------- FOOTER ---------- */
-  footer{background:var(--navy-950); color:var(--paper); padding:56px 0 26px; border-top:2px solid var(--gold);}
-  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; margin-bottom:40px;}
+  footer{background:var(--navy-950); color:var(--paper); padding:56px 0 26px; border-top:2px solid var(--gold); width:100%;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px; margin-bottom:40px;}
   .foot-grid h5{font-family:'Roboto Mono'; font-size:11.5px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:16px;}
   .foot-grid ul{list-style:none; margin:0; padding:0;}
   .foot-grid li{margin-bottom:10px; font-size:13.5px; opacity:0.78;}
@@ -455,18 +494,18 @@
   /* ---------- FLOATING WHATSAPP ---------- */
   .float-wsp{
     position:fixed; bottom:24px; right:24px; z-index:200;
-    background:#25D366; color:#062b16; width:60px; height:60px; border-radius:50%;
+    background:#25D366; color:#062b16; width:56px; height:56px; border-radius:50%;
     display:flex; align-items:center; justify-content:center; box-shadow:0 14px 30px -8px rgba(37,211,102,0.6);
-    font-size:28px;
+    font-size:26px; transition: transform 0.2s ease;
   }
-  .float-wsp:hover{transform:scale(1.06);}
+  .float-wsp:hover{transform:scale(1.08);}
 
   /* ---------- PAGE VIEW SWITCH ---------- */
-  .page{display:none;}
+  .page{display:none; width:100%;}
   .page.active{display:block;}
 
   /* ---------- TESTIMONIALS ---------- */
-  .testi-row{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .testi-row{display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:20px; width:100%;}
   .testi{
     background:var(--white); border-radius:14px; padding:24px; border:1px solid rgba(10,21,38,0.08);
     position:relative;
@@ -476,28 +515,116 @@
   .testi .who{font-weight:800; font-size:13px; color:var(--navy-950);}
   .testi .who span{font-weight:500; color:var(--ink-soft); font-size:12px; display:block; font-family:'Roboto Mono';}
 
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:720px){
+  /* ---------- RESPONSIVE MEDIA QUERIES ---------- */
+ @media (max-width: 720px) {
+  /* 1. Bloqueo estricto del scroll lateral */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw;
+  }
+
+  .wrap {
+    padding: 0 12px !important;
+  }
+
+  /* 2. Header ajustado para pantallas pequeñas */
+  .header-inner {
+    padding: 10px 12px !important;
+    gap: 8px !important;
+    flex-wrap: nowrap;
+  }
+
+  .brand-name span {
+    display: none; /* Oculta el subtítulo en móvil para ahorrar espacio */
+  }
+
+  .header-actions {
+    gap: 6px !important;
+  }
+
+  .header-actions .btn-wsp {
+    padding: 8px 12px !important;
+    font-size: 11px !important;
+  }
+
+  .icon-link {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 11px !important;
+  }
+
+  .burger {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  /* 3. Menú Hamburguesa en Celular */
   nav.main-nav {
-    display: none; /* Oculto por defecto en celular */
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     background: var(--navy-900);
     flex-direction: column;
-    padding: 20px;
-    gap: 16px;
+    padding: 16px;
+    gap: 12px;
     border-bottom: 2px solid var(--gold);
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
   }
 
-  /* Esta clase se activa con JavaScript al tocar las 3 barritas */
   nav.main-nav.open {
     display: flex !important;
   }
 
-  .burger { display: flex; }
+  /* 4. Grilla de Productos: 1 o 2 columnas según pantalla sin salirse */
+  .grid, .grid.cols-6 {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  /* 5. Ajuste de tarjetas en teléfono */
+  .card {
+    width: 100% !important;
+  }
+
+  .card-body {
+    padding: 10px !important;
+  }
+
+  .card-body h3 {
+    font-size: 13px !important;
+  }
+
+  .card-meta {
+    font-size: 9px !important;
+  }
+
+  .card-actions {
+    flex-direction: column; /* Botones en vertical en celular */
+    gap: 6px !important;
+  }
+
+  .btn-sm {
+    padding: 6px 4px !important;
+    font-size: 11px !important;
+  }
+
+  .price {
+    font-size: 14px !important;
+  }
+
+  /* 6. Estadísticas y Hero */
+  .hero-stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-stats div {
+    border-right: none !important;
+    padding: 4px 0 !important;
+  }
 }
 </style>
 </head>
@@ -649,7 +776,7 @@
       <div class="measure-card" id="size-table-fan" style="overflow-x:auto;">
         <div style="font-family:'Roboto Mono',monospace; font-size:11px; color:var(--red); text-transform:uppercase; margin-bottom:14px; font-weight:700;">★ VERSIÓN FAN / SIN MANGAS / RETRO ★</div>
         
-        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px; min-width: 280px;">
           <thead>
             <tr style="border-bottom:1.5px solid var(--navy-line); font-family:'Roboto Mono',monospace; font-size:11px; color:var(--ink-soft); text-transform:uppercase;">
               <th style="padding:8px 4px;">Talla</th>
@@ -710,7 +837,7 @@
       <div class="measure-card" id="size-table-jugador" style="display:none; overflow-x:auto;">
         <div style="font-family:'Roboto Mono',monospace; font-size:11px; color:var(--gold); text-transform:uppercase; margin-bottom:14px; font-weight:700;">⚡ VERSIÓN JUGADOR (AJUSTADO - SLIM FIT) ⚡</div>
         
-        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px; min-width: 280px;">
           <thead>
             <tr style="border-bottom:1.5px solid var(--navy-line); font-family:'Roboto Mono',monospace; font-size:11px; color:var(--ink-soft); text-transform:uppercase;">
               <th style="padding:8px 4px;">Talla</th>
@@ -764,7 +891,7 @@
       <div>
         <h3 style="font-family:'Work Sans'; text-transform:none; font-weight:800; font-size:20px; color:var(--navy-950); margin-bottom:12px;">¿Cómo elegir tu talla ideal?</h3>
         <p style="color:var(--ink-soft); font-size:14px; line-height:1.6; margin-bottom:12px;">
-          • <b>Versión Fan / Retro:</b> Tiene un calce regular tradicional. Si prefieres un ajuste normal, elige tu talla habitual[cite: 5].<br>
+          • <b>Versión Fan / Retro:</b> Tiene un calce regular tradicional. Si prefieres un ajuste normal, elige tu talla habitual[cite: 1].<br>
           • <b>Versión Jugador:</b> Tiene un calce entallado/ajustado (Slim Fit). Te recomendamos pedir <b>una talla más</b> de la habitual para uso normal, o <b>dos tallas más</b> si te gusta holgada.
         </p>
         <p style="font-size:12px; color:var(--ink-soft); opacity:0.8;">
@@ -802,7 +929,7 @@
 
   <!-- CONTACTO -->
   <section class="wrap" id="contacto">
-    <div class="price-panel" style="grid-template-columns:1fr 1fr;">
+    <div class="price-panel">
       <div>
         <span class="eyebrow" style="color:var(--gold);">Hablemos</span>
         <h2 style="color:var(--white); margin-top:8px; font-size:30px;">¿Buscas una camiseta que no aparece?</h2>
@@ -815,10 +942,10 @@
       <div class="measure-card" style="background:var(--navy-800); border-color:var(--navy-line);">
         <h4 style="font-family:'Roboto Mono'; font-size:11px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:16px;">Cuéntanos qué buscas</h4>
         <div style="display:flex; flex-direction:column; gap:12px;">
-          <input placeholder="Tu nombre" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px;">
-          <input placeholder="Equipo / temporada que buscas" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px;">
-          <input placeholder="Tu talla" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px;">
-          <button class="btn btn-gold" style="justify-content:center;">Enviar consulta</button>
+          <input placeholder="Tu nombre" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
+          <input placeholder="Equipo / temporada que buscas" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
+          <input placeholder="Tu talla" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
+          <button class="btn btn-gold" style="justify-content:center; width:100%;">Enviar consulta</button>
         </div>
       </div>
     </div>
@@ -966,7 +1093,7 @@ const MODELOS = ["Local","Visita","Tercera","Arquero","Edición especial"];
 const TALLAS = ["S","M","L","XL","2XL"];
 
 /* ============ RENDER CARD ============ */
-function money(n){ return n.toLocaleString("es-CL"); }
+function money(n){ return n ? n.toLocaleString("es-CL") : "0"; }
 
 function cardHTML(p){
   const imgTraseraHTML = p.imagenTrasera 
@@ -977,6 +1104,7 @@ function cardHTML(p){
   <div class="card">
     <div class="card-hole"></div>
     <div class="card-media" style="cursor: pointer;" onclick="openModal('${p.id}')">
+      <!-- Badge fijo para todas las camisetas -->
       <span class="badge ok">Disponible para encargo</span>
       
       <div class="img-wrapper">
@@ -986,23 +1114,29 @@ function cardHTML(p){
     </div>
 
     <div class="card-body">
-      <div class="card-meta"><span>${p.liga}</span> · <span>${p.temporada}</span></div>
-      <h3>${p.equipo}</h3>
-      <div class="card-type">${p.tipo} · ${p.modelo}</div>
-      <div class="card-foot">
-        <span class="price mono">${money(p.price)}</span>
+      <div>
+        <div class="card-meta"><span>${p.liga}</span> · <span>${p.temporada}</span></div>
+        <h3>${p.equipo}</h3>
+        <div class="card-type">${p.tipo} · ${p.modelo}</div>
       </div>
-      <div class="card-actions">
-        <a class="btn-sm details" href="#" onclick="event.preventDefault(); openModal('${p.id}')">Ver detalles</a>
-        <a class="btn-sm wsp" target="_blank" href="https://wa.me/56979595798?text=${encodeURIComponent('Hola, vengo desde el catálogo de Camisetas La Octava. Quiero consultar por la camiseta '+p.equipo+' '+p.temporada+', mi talla es __ y quiero saber si está disponible.')}">WhatsApp</a>
+      <div>
+        <div class="card-foot">
+          <span class="price mono">${money(p.price)}</span>
+        </div>
+        <div class="card-actions">
+          <a class="btn-sm details" href="#" onclick="event.preventDefault(); openModal('${p.id}')">Ver detalles</a>
+          <a class="btn-sm wsp" target="_blank" href="https://wa.me/56979595798?text=${encodeURIComponent('Hola, vengo desde el catálogo de Camisetas La Octava. Quiero consultar por la camiseta '+p.equipo+' '+p.temporada+', mi talla es __ y quiero saber si está disponible.')}">WhatsApp</a>
+        </div>
       </div>
     </div>
   </div>`;
 }
 
 // Cargar listas de Inicio
-document.getElementById('grid-nuevos').innerHTML = PRODUCTS.filter(p=>p.nuevo).slice(0,4).map(cardHTML).join('');
-document.getElementById('grid-populares').innerHTML = PRODUCTS.filter(p=>p.popular).slice(0,4).map(cardHTML).join('');
+if(typeof PRODUCTS !== 'undefined') {
+  document.getElementById('grid-nuevos').innerHTML = PRODUCTS.filter(p=>p.nuevo).slice(0,4).map(cardHTML).join('');
+  document.getElementById('grid-populares').innerHTML = PRODUCTS.filter(p=>p.popular).slice(0,4).map(cardHTML).join('');
+}
 
 /* ============ CATEGORY TILES ============ */
 const catTiles = [
@@ -1065,6 +1199,8 @@ function clearFilters(){
 }
 
 function renderCatalog(){
+  if(typeof PRODUCTS === 'undefined') return;
+
   const q = document.getElementById('search-input').value.trim().toLowerCase();
   const ligas = getActive('filter-liga').map(v=>v.toLowerCase());
   const tipos = getActive('filter-tipo').map(v=>v.toLowerCase());
@@ -1083,13 +1219,13 @@ function renderCatalog(){
     const pVersion = (p.version || "").toLowerCase();
     const pTemporada = (p.temporada || "").toLowerCase();
 
-    // Búsqueda por texto (buscador superior)
+    // Búsqueda por texto
     if(q && !(pEquipo.includes(q) || pLiga.includes(q) || pTemporada.includes(q))) return false;
 
     // Filtro por Liga
     if(ligas.length && !ligas.includes(pLiga)) return false;
 
-    // Filtro inteligente por Tipo y Mangas
+    // Filtro por Tipo y Mangas
     if(tipos.length){
       const cumpleTipo = tipos.some(t => {
         if(t === "manga corta") return pManga === "manga corta";
@@ -1104,7 +1240,7 @@ function renderCatalog(){
     if(modelos.length && !modelos.includes(pModelo)) return false;
 
     // Filtro por Talla
-    if(tallas.length && !tallas.some(t => p.tallas.map(x=>x.toLowerCase()).includes(t))) return false;
+    if(tallas.length && !tallas.some(t => (p.tallas || []).map(x=>x.toLowerCase()).includes(t))) return false;
 
     // Filtro por Versión
     if(versiones.length && !versiones.includes(pVersion)) return false;
@@ -1125,11 +1261,11 @@ function renderCatalog(){
   else if(sort==="populares") list.sort((a,b)=>(b.popular?1:0)-(a.popular?1:0));
   else list.sort((a,b)=>(b.nuevo?1:0)-(a.nuevo?1:0));
 
-  document.getElementById('grid-catalogo').innerHTML = list.map(cardHTML).join('') || '<p style="color:var(--ink-soft); padding:40px 0;">No encontramos camisetas con esos filtros. Prueba limpiar los filtros o consúltanos por WhatsApp.</p>';
+  document.getElementById('grid-catalogo').innerHTML = list.map(cardHTML).join('') || '<p style="color:var(--ink-soft); padding:40px 0; grid-column:1/-1;">No encontramos camisetas con esos filtros. Prueba limpiar los filtros o consúltanos por WhatsApp.</p>';
   document.getElementById('result-count').textContent = list.length;
 }
 
-// Event Listeners para búsqueda e interactividad
+// Event Listeners
 document.getElementById('search-input').addEventListener('input', renderCatalog);
 document.getElementById('sort-select').addEventListener('change', renderCatalog);
 document.querySelectorAll('.f-version, .f-estado').forEach(el=>el.addEventListener('change', renderCatalog));
@@ -1140,12 +1276,13 @@ function showPage(name){
   document.getElementById('page-'+name).classList.add('active');
   window.scrollTo({top:0, behavior:'instant'});
   if(name === 'catalogo') {
-    renderCatalog(); // Asegura cargar los productos inmediatamente al entrar al catálogo
+    renderCatalog();
   }
 }
 
 /* ============ MODAL FUNCTIONS ============ */
 function openModal(productId) {
+  if(typeof PRODUCTS === 'undefined') return;
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
 
@@ -1156,7 +1293,6 @@ function openModal(productId) {
   const thumbsContainer = document.getElementById('modal-thumbs');
   thumbsContainer.innerHTML = '';
 
-  // Botón Frente
   const btnFront = document.createElement('button');
   btnFront.className = 'thumb-btn active';
   btnFront.textContent = 'Frente';
@@ -1167,7 +1303,6 @@ function openModal(productId) {
   };
   thumbsContainer.appendChild(btnFront);
 
-  // Botón Espalda
   if (product.imagenTrasera) {
     const btnBack = document.createElement('button');
     btnBack.className = 'thumb-btn';
@@ -1209,25 +1344,8 @@ function switchSizeTab(type) {
   }
 }
 
-// Carga inicial del catálogo al abrir la página
+// Carga inicial
 renderCatalog();
-
-// Función para abrir/cerrar el menú en celular
-const burgerBtn = document.querySelector('.burger');
-const mainNav = document.querySelector('nav.main-nav');
-
-if (burgerBtn && mainNav) {
-  burgerBtn.addEventListener('click', () => {
-    mainNav.classList.toggle('open');
-  });
-
-  // Cierra el menú automáticamente al hacer clic en cualquier opción
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('open');
-    });
-  });
-}
 </script>
 </body>
 </html>
