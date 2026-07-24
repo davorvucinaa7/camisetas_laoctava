@@ -518,21 +518,35 @@
   /* ---------- RESPONSIVE MEDIA QUERIES ---------- */
  @media (max-width: 720px) {
 
-  /* --- MENU HAMBURGUESA DESPLEGABLE --- */
-  nav.main-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: var(--navy-900);
-    flex-direction: column;
-    padding: 20px;
-    gap: 16px;
-    border-bottom: 2px solid var(--gold);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    z-index: 999;
+  /* 1. La caja de precios pasa de 2 columnas a 1 columna (vertical) */
+  .price-panel {
+    grid-template-columns: 1fr !important;
+    padding: 20px 14px !important;
+    gap: 24px !important;
   }
+
+  /* 2. La lista de precios usa todo el ancho disponible */
+  .price-list li {
+    padding: 10px 0 !important;
+    gap: 10px !important;
+  }
+
+  .price-list .label {
+    font-size: 13px !important;
+    line-height: 1.3;
+  }
+
+  .price-list .amount {
+    font-size: 14px !important;
+  }
+
+  /* 3. Ajuste de la nota de personalización abajo */
+  .price-note {
+    padding: 16px !important;
+    font-size: 13px !important;
+  }
+}
+
 
   /* Clase que activa el menú con JavaScript */
   nav.main-nav.open {
