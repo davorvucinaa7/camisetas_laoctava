@@ -877,9 +877,9 @@
       </div>
     </div>
     <div class="testi-row">
-      <div class="testi"><div class="stars">★★★★★</div><p>Pedí mi camiseta con nombre y número, llegó justo como la pedí y súper rápido. Todo coordinado por WhatsApp, muy fácil.</p><div class="who">Camila R. <span>Región Metropolitana</span></div></div>
-      <div class="testi"><div class="stars">★★★★★</div><p>Excelente calidad en la versión jugador. El logo termosellado quedó perfecto y la talla fue exacta gracias a la tabla de medidas.</p><div class="who">Matías S. <span>Concepción</span></div></div>
-      <div class="testi"><div class="stars">★★★★★</div><p>Compré el conjunto para mi hijo, incluyó short del mismo talle. Buena atención y respuesta rápida por Instagram.</p><div class="who">Daniela P. <span>Valparaíso</span></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>Pedí mi camiseta con nombre y número, llegó justo como la pedí y súper rápido. Todo coordinado por WhatsApp, y muy intuitivo.</p><div class="who">Ignacia <span>San Pedro de la Paz</span></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>Excelente calidad  de las camisetas, gracias a la tabla de medidas pude encontrar mi talla adecuada.</p><div class="who">José <span>Concepción</span></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>Excelente servicio y calidad de los productos, todo explicado perfecto y cumplieron con los plazos.</p><div class="who">Felipe <span>Valparaíso</span></div></div>
     </div>
   </section>
 
@@ -1102,11 +1102,9 @@ if(typeof PRODUCTS !== 'undefined') {
 /* ============ CATEGORY TILES ============ */
 const catTiles = [
   {n: LIGAS.length, label:"Ligas y selecciones", small:"Premier · La Liga · Serie A..."},
-  {n: TIPOS.length, label:"Tipos de camiseta", small:"Fan · Jugador · Retro..."},
-  {n: MODELOS.length, label:"Modelos", small:"Local · Visita · Tercera..."},
-  {n: "N", label:"Niños", small:"Tallas infantiles"},
-  {n: "R", label:"Retro", small:"Clásicos de colección"},
-  {n: "P", label:"Personalizadas", small:"Nombre, número y parches"},
+  {n: 3, label:"Tipos de camiseta", small:"Manga corta · Manga larga · Sin mangas"},
+  {n: 3, label:"Versiones", small:"Versión fan · Versión jugador · Retro"},
+  {n: "NIÑOS", label:"Conjuntos de niños", small:"Incluye camiseta y short"},
 ];
 document.getElementById('cat-grid').innerHTML = catTiles.map(c=>`
   <a class="cat-tile" href="#" onclick="showPage('catalogo')">
