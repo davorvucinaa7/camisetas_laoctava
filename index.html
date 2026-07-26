@@ -907,15 +907,14 @@
         </div>
       </div>
       <div class="measure-card" style="background:var(--navy-800); border-color:var(--navy-line);">
-        <h4 style="font-family:'Roboto Mono'; font-size:11px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:16px;">Cuéntanos qué buscas</h4>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <input placeholder="Tu nombre" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
-          <input placeholder="Equipo / temporada que buscas" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
-          <input placeholder="Tu talla" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
-          <button class="btn btn-gold" style="justify-content:center; width:100%;">Enviar consulta</button>
-        </div>
-      </div>
-    </div>
+  <h4 style="font-family:'Roboto Mono'; font-size:11px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:16px;">Cuéntanos qué buscas</h4>
+  <div style="display:flex; flex-direction:column; gap:12px;">
+    <input id="custom-nombre" placeholder="Tu nombre" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
+    <input id="custom-equipo" placeholder="Equipo / temporada que buscas" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
+    <input id="custom-talla" placeholder="Tu talla" style="background:var(--navy-900); border:1px solid var(--navy-line); border-radius:9px; padding:12px 14px; color:var(--white); font-family:'Work Sans'; font-size:13.5px; width:100%;">
+    <button onclick="sendCustomConsulta()" class="btn btn-gold" style="justify-content:center; width:100%;">Enviar consulta</button>
+  </div>
+</div>
   </section>
 
 </div>
@@ -1314,6 +1313,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/* ============ ENVÍO DE CONSULTA PERSONALIZADA ============ */
+function sendCustomConsulta() {
+  const nombre = document.getElementById('custom-nombre').value.trim();
+  const equipo = document.getElementById('custom-equipo').value.trim();
+  const talla = document.getElementById('custom-talla').value.trim();
+
+  if (!equipo) {
+    alert('Por favor, ingresa al menos el equipo o temporada que buscas.');
+    return;
+  }
+
+  let mensaje = `Hola, mi nombre es ${nombre || 'un cliente'}. Estoy buscando la camiseta de: ${equipo}`;
+  if (talla) {
+    mensaje += `, en talla ${talla}`;
+  }
+  mensaje += `. ¿Tienen disponibilidad o se puede pedir por encargo?`;
+
+  const url = `https://wa.me/56979595798?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+}
 </script>
 </body>
 </html>
