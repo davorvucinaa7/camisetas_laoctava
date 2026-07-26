@@ -710,10 +710,10 @@
     </div>
     <div class="price-panel">
       <ul class="price-list">
-        <li><span class="label">Camiseta versión fan / Camiseta sin mangas</span><span class="amount">$13.000</span></li>
+        <li><span class="label">Camiseta versión Fan / Camiseta sin mangas</span><span class="amount">$13.000</span></li>
         <li><span class="label">Sin mangas + short (misma talla)</span><span class="amount">$23.000</span></li>
         <li><span class="label">Short</span><span class="amount">$12.000</span></li>
-        <li><span class="label">Manga larga versión fan</span><span class="amount">$20.000</span></li>
+        <li><span class="label">Manga larga versión Fan</span><span class="amount">$20.000</span></li>
         <li><span class="label">Retro o versión jugador</span><span class="amount">$18.000</span></li>
         <li><span class="label">Manga larga retro / Manga larga versión jugador</span><span class="amount">$24.000</span></li>
         <li><span class="label">Tallas desde 2XL</span><span class="amount">+$1.000</span></li>
@@ -900,7 +900,7 @@
       <div>
         <span class="eyebrow" style="color:var(--gold);">Hablemos</span>
         <h2 style="color:var(--white); margin-top:8px; font-size:30px;">¿Buscas una camiseta que no aparece?</h2>
-        <p style="color:var(--paper); opacity:0.8; font-size:14.5px; margin-top:14px; line-height:1.7;">Escríbenos el equipo, temporada y talla que necesitas — la mayoría de los modelos se pueden conseguir por encargo.</p>
+        <p style="color:var(--paper); opacity:0.8; font-size:14.5px; margin-top:14px; line-height:1.7;">Escríbenos el equipo, temporada y talla que necesitas, la mayoría de los modelos se pueden conseguir por encargo.</p>
         <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
           <a class="btn btn-gold" href="https://wa.me/56979595798" target="_blank">Escribir por WhatsApp</a>
           <a class="btn btn-outline" href="https://instagram.com/camisetas_laoctava" target="_blank">Ir a Instagram</a>
@@ -1050,7 +1050,7 @@
 <script>
 /* ============ DATA ============ */
 const LIGAS = ["Premier League","La Liga","Serie A","Bundesliga","Ligue 1","Liga chilena","Liga argentina","Liga brasileña","Otras ligas"];
-const TIPOS = ["Versión fan","Versión jugador","Retro","Manga corta","Manga larga","Sin mangas","Niños","Shorts"];
+const TIPOS = ["Versión Fan","Versión jugador","Retro","Manga corta","Manga larga","Sin mangas","Niños","Shorts"];
 const MODELOS = ["Local","Visita","Tercera","Edición especial"];
 const TALLAS = ["S","M","L","XL","2XL"];
 
@@ -1061,6 +1061,11 @@ function cardHTML(p){
   const imgTraseraHTML = p.imagenTrasera 
     ? `<img src="${p.imagenTrasera}" alt="${p.equipo} trasera" class="jersey-img img-back" loading="lazy">` 
     : '';
+
+  // Construir descripción detallada para WhatsApp
+  const detallesCamiseta = `${p.equipo} ${p.temporada} (${p.tipo} · ${p.modelo}${p.manga ? ' · ' + p.manga : ''})`;
+
+  const mensajeWsp = `Hola, vengo desde el catálogo de Camisetas La Octava. Quiero consultar por la camiseta: ${detallesCamiseta}, mi talla es __ y quiero saber si está disponible.`;
 
   return `
   <div class="card">
@@ -1086,7 +1091,7 @@ function cardHTML(p){
         </div>
         <div class="card-actions">
           <a class="btn-sm details" href="#" onclick="event.preventDefault(); openModal('${p.id}')">Ver detalles</a>
-          <a class="btn-sm wsp" target="_blank" href="https://wa.me/56979595798?text=${encodeURIComponent('Hola, vengo desde el catálogo de Camisetas La Octava. Quiero consultar por la camiseta '+p.equipo+' '+p.temporada+', mi talla es __ y quiero saber si está disponible.')}">WhatsApp</a>
+          <a class="btn-sm wsp" target="_blank" href="https://wa.me/56979595798?text=${encodeURIComponent(mensajeWsp)}">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -1102,7 +1107,7 @@ if(typeof PRODUCTS !== 'undefined') {
 const catTiles = [
   {n: LIGAS.length, label:"Ligas y selecciones", small:"Premier · La Liga · Serie A..."},
   {n: 3, label:"Tipos de camiseta", small:"Manga corta · Manga larga · Sin mangas"},
-  {n: 3, label:"Versiones", small:"Versión fan · Versión jugador · Retro"},
+  {n: 3, label:"Versiones", small:"Versión Fan · Versión Jugador · Retro"},
   {n: "NIÑOS", label:"Conjuntos de niños", small:"Incluye camiseta y short"},
 ];
 document.getElementById('cat-grid').innerHTML = catTiles.map(c=>`
