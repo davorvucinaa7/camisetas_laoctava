@@ -1063,9 +1063,9 @@ function cardHTML(p){
     : '';
 
   // Construir descripción detallada para WhatsApp
-  const detallesCamiseta = `${p.equipo} ${p.temporada} (${p.tipo} · ${p.modelo}${p.manga ? ' · ' + p.manga : ''})`;
+  const detallesCamiseta = `${p.equipo} ${p.temporada} (${p.tipo}, ${p.modelo}${p.manga ? ', ' + p.manga : ''})`;
 
-  const mensajeWsp = `Hola, vengo desde el catálogo de Camisetas La Octava. Quiero consultar por la camiseta: ${detallesCamiseta}, mi talla es __ y quiero saber si está disponible.`;
+  const mensajeWsp = `Hola, vengo desde el catálogo de Camisetas La Octava. Quiero consultar por la camiseta ${detallesCamiseta}, mi talla es __ y quiero saber si está disponible.`;
 
   return `
   <div class="card">
