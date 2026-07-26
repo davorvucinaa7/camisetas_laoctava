@@ -63,25 +63,30 @@
   /* ---------- SCROLLBAR ACCENT ---------- */
   ::selection{background:var(--gold); color:var(--navy-950);}
 
-  /* ---------- HEADER ---------- */
-  .topstrip{
-    background:var(--navy-950);
-    color:var(--gold-soft);
-    font-family:'Roboto Mono', monospace;
-    font-size:11px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    text-align:center;
-    padding:7px 12px;
-    border-bottom:1px solid var(--navy-line);
-    word-break: break-word;
-  }
-  header.site{
-    position:sticky; top:0; z-index:100;
-    background:var(--navy-900);
-    border-bottom:2px solid var(--gold);
-    width: 100%;
-  }
+  /* Cinta de envíos fija */
+.topstrip {
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  background: var(--navy-950);
+  color: var(--gold-soft);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--navy-line);
+}
+
+/* Header principal pegado justo debajo de la cinta */
+header.site {
+  position: sticky;
+  top: 31px; /* La altura de la cinta para que no se pisen */
+  z-index: 100;
+  background: var(--navy-900);
+  border-bottom: 2px solid var(--gold);
+}
   .header-inner{
     display:flex; align-items:center; justify-content:space-between;
     padding:12px 24px; gap:20px;
@@ -574,27 +579,34 @@
     width: 100%;
     padding: 12px;
   }
-}
+
 
   /* Tabla de Medidas Optimizada */
   .split {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
   }
 
+  /* La tarjeta con la tabla aprovecha todo el ancho disponible */
   .measure-card {
+    width: 100% !important;
     padding: 16px 12px !important;
+    box-sizing: border-box;
   }
 
+  /* Asegura que la tabla no se rompa feo hacia abajo */
   .measure-card table {
-    font-size: 12px !important;
+    width: 100% !important;
+    font-size: 12.5px !important;
   }
 
   .measure-card th, 
   .measure-card td {
-    padding: 8px 3px !important;
+    padding: 8px 4px !important;
     white-space: nowrap;
   }
+
 
   /* Grilla de productos */
   .grid, .grid.cols-6 {
